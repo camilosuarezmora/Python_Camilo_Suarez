@@ -6,7 +6,7 @@ def registrar_usuario(data):
     if data.get(doc, None) == None:
         usuario["Nombre"] = input("Ingrese el nombre: ")
         usuario["Edad"] = int(input("Ingrese la edad: "))
-        data[doc] = usuario
+        data[doc] = usuario #crea un usuario nuevo dentro del diccionario
     else:
         print("Usuario ya existe!")
     print("**************************************************")
@@ -14,8 +14,8 @@ def registrar_usuario(data):
 
 def mostrar_usuarios(data):
     print("**************************************************")
-    data = dict(data)
-    for clave, valor in data.items():
+    data = dict(data) # estar seguro que el siccionario ingresado es un diccionario
+    for clave, valor in data.items(): #data.items() -> separa un diccionario en key y value, estos se colocan en el for 
         print("Nombre:", valor["Nombre"], ", Edad:", valor["Edad"], ", Documento: ", clave)
     print("**************************************************")
 
@@ -37,7 +37,7 @@ usuarios = {
     "10989279": {"Nombre": "Maria", "Edad": 20},
 }
 
-opciones_menu = ("1. Para registrarse", "2. Para mostrar todos los usuarios", "3. Para mostrar un solo usuario", "4. Para salir")
+opcionsales_menu = ("1. Para registrarse", "2. Para mostrar todos los usuarios", "3. Para mostrar un solo usuario", "4. Para ir")
 
 while True:
     print("*********************************************************")
@@ -45,6 +45,7 @@ while True:
     for i in opciones_menu:
         print(i)
     opc = int(input("Ingrese la opción deseada: "))
+    
     if opc == len(opciones_menu):
         print("Saliendo...")
         break
