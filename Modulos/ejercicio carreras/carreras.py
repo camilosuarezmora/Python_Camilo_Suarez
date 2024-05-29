@@ -10,39 +10,40 @@ patinaje = {
     "participantes":{}
 }
 
-def menu():
-    while True:
-        edad=int(input("Ingresa el año de tu nacimiento: "))
-        depa = input("Ingresa el departamento en el que resides: ")
+def menu(): 
+    carreras = ("Escribe 1 si participaste en la carrera de atletismo: ", "Escribe 2 si participaste en la carrera de ciclismo: ", "Escribe 3 si participaste en la carrera de patinaje: ", "Escribe 4 para salir: ")
 
-        carreras = ("Escribe 1 si participaste en la carrera de atletismo: ", "Escribe 2 si participaste en la carrera de ciclismo: ", "Escribe 3 si participaste en la carrera de patinaje: ", "Escribe 4 para salir: ")
+    print("**********")
+    print("Elegiste la opción 1, ahora sigue los pasos para registarte")
 
-        if 2024-edad >= 18 and depa.upper() == "SANTANDER":
-            print("Puedes continuar")
-            for i in carreras:
-                print(i)
-            carrera_elegida = int(input("Ingresa tu elección: "))  
+    edad=int(input("Ingresa el año de tu nacimiento: "))
+    depa = input("Ingresa el departamento en el que resides: ")
+
+    if 2024-edad >= 18 and depa.upper() == "SANTANDER":
+        print("Puedes continuar")
+        for i in carreras:
+            print(i)
+        carrera_elegida = int(input("Ingresa tu elección: "))  
             
-            if (carrera_elegida == 1): 
-                recoge_datos(atletismo)
-
-                
-            elif (carrera_elegida == 2):
-                recoge_datos(ciclismo)
-
-            elif (carrera_elegida == 3):
-                recoge_datos(patinaje)
-            elif(carrera_elegida == len(carreras)):
-                print("Salida exitosa")
-                break
-        else:
-            print("No puedes continuar")
-            break
+        if (carrera_elegida == 1): 
+            recoge_datos(atletismo)
+            
+        elif (carrera_elegida == 2):
+            recoge_datos(ciclismo)
+        elif (carrera_elegida == 3):
+            recoge_datos(patinaje)
+        elif(carrera_elegida == len(carreras)):
+            print("Salida exitosa")
         
+    else:
+        print("No puedes continuar")
+
+    print("****************************")      
 
 def recoge_datos(carrera):
+    print("******************************")
     name = input("Ingresa tu nombre: ")
-    edad = input("Ingresa tu edad: ")
+    edad = input("Ingresa tu edad: ") #atrás le había pedido el año de nacimiento, de ahi debería sacar la info de la edad
     doc = input("Ingresa tu documento: ")
     score = float(input("Escribe el tiempo en segundos que sacaste en cada carrera: "))
     usuario_nuevo={}
@@ -52,19 +53,24 @@ def recoge_datos(carrera):
     usuario_nuevo["score"] = score
 
     carrera["participantes"][doc]= usuario_nuevo
-    
     print("Usuario registrado exitosamente")
     print("****************************")
+    print(carrera)
 
 def compara_tiempos(carrera):
-    print(carrera["participantes"]) 
+    print(carrera["participantes"].keys()) 
 
-print("******Bienvenido al programa para organizar la carrera gubernamental ******")
-eleccion = ("Escribe 1 para registrar un usuario: ", "Escribe 2 para conocer el ranking de resultados en la carrera", "Escribe 3 para salir")
 
-for i in eleccion:
-    print(i)
+
+
+print("****** Bienvenido al programa para organizar la carrera gubernamental ******")
+
 while True:
+    eleccion = ("Escribe 1 para registrar un usuario: ", "Escribe 2 para conocer el ranking de resultados en la carrera", "Escribe 3 para salir")
+
+    for i in eleccion:
+        print(i)
+
     eleccionprincipal = int(input("Escribe tu elección: "))
     if eleccionprincipal == len(eleccion):
         print("salida exitosa")
@@ -72,13 +78,23 @@ while True:
     elif eleccionprincipal == 1:
         menu()
     elif eleccionprincipal == 2: 
-        menu_ranking_carrera = ("Escribe 1 si quieres conocer el ranking de atletismo", "Escribe 2 si quieres conocer el ranking de ciclismo", "Escribe 3 si quieres conocer el ranking de patinaje", "Escribe 1 si quieres conocer el ranking de atletismo")
+        print("*********")
+        
+        menu_ranking_carrera = ("Escribe 1 si quieres conocer el ranking de atletismo", "Escribe 2 si quieres conocer el ranking de ciclismo", "Escribe 3 si quieres conocer el ranking de patinaje")
 
-        elecc_ranking = input("Ingresa el nombre de la carrera a la cual deseas conocer el ranking: ")    
-        elecc_ranking.upper()
-        if elecc_ranking == "ATLETISMO":
+        for i in menu_ranking_carrera:
+            print(i)
+
+        elecc_ranking = int(input("Ingresa aquí el numero del deporte del que quieres conocer el ranking: "))    
+
+        if elecc_ranking == 1:
             compara_tiempos(atletismo)
-        elif elecc_ranking == "CICLISMO":
+        elif elecc_ranking == 2:
             compara_tiempos(ciclismo)
-        elif elecc_ranking == "PATINAJE":
+        elif elecc_ranking == 3:
             compara_tiempos(patinaje) 
+        elif elecc_ranking == len(menu_ranking_carrera):
+            print("Salida exitosa")
+
+            
+
