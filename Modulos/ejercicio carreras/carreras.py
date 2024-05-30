@@ -79,18 +79,13 @@ def recoge_datos(carrera):
     print(carrera)
 
 def compara_tiempos(carrera):
-    dict_de_scores = {}
-    for detalles in carrera.get('participantes', {}).values():
-        
+    array_de_scores = []
+    for clave, detalles in carrera['participantes'].items():
         if 'score' in detalles:
-            carrera.get('participantes')
-            #
-            dict_de_scores.append(detalles['score'])
-            
-    
-    return dict_de_scores
-    
-    
+            array_de_scores.append((clave, detalles['score']))
+    return array_de_scores            
+        
+ 
 
 
 
@@ -98,6 +93,7 @@ print("****** Bienvenido al programa para organizar la carrera gubernamental ***
 print("salida exitosa")
         # 
 while True:
+    print("                                                    menu principal")
     eleccion = ("Escribe 1 para registrar un usuario: ", "Escribe 2 para conocer el ranking de resultados en la carrera", "Escribe 3 para salir")
     for i in eleccion:
         print(i)

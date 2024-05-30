@@ -1,3 +1,0 @@
-from mi_modulo import funcion_especifica_del_modulo
-
-print(mi_modulo.funcion_especifica_del_modulo(1))
