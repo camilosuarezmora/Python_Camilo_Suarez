@@ -7,9 +7,15 @@
     
     
     #Registrar entrada empleados
-    #Registrar salida de empleados
-yeison = open("yeison.js", mode='a')
-yeison.load 
+    #Registrar salida de empleadosç
+    
+archivo_texto = open("manejo de archivos y estructuras de datos//cucaracha.txt")
+print(archivo_texto.read())
+archivo_texto.close()
+
+archivo_texto = open("manejo de archivos y estructuras de datos//cucaracha.txt","w")
+archivo_texto.write("Lo de atras es una cucaracha")
+archivo_texto.close()
 
 
 
