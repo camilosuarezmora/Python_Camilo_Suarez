@@ -1,0 +1,20 @@
+[
+    {
+        "ttv967":{
+            "Ingreso" : null,
+            "Salida": null,
+            "costo_de_estancia": null,
+            "el_usuario_pago": false,
+            "esta_parqueado": false
+        }
+    },
+    {
+        "cxf56j":{
+            "Ingreso" : null,
+            "Salida": null,
+            "costo_de_estancia": null,
+            "el_usuario_pago": false,
+            "esta_parqueado": false
+        }
+    }
+]
