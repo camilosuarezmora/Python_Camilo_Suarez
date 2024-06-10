@@ -27,13 +27,13 @@ while True:
     if elecc == 5:
         print("SALIDA EXITOSA")
         break
-    elif elecc == 2:
-        print("pendiente") 
+    elif elecc == 1:
+        import main_opc1 
     elif elecc == 2:
         print("pendiente")       
-    elif elecc == 2:
+    elif elecc == 3:
         print("pendiente")
-    elif elecc == 2:
+    elif elecc == 4:
         print("pendiente")
     else:
         print("Opción no valida, intenta de nuevo")    
